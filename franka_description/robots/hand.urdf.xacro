@@ -2,4 +2,10 @@
 <robot xmlns:xacro="http://www.ros.org/wiki/xacro" name="hand">
   <xacro:include filename="hand.xacro"/>
   <xacro:hand ns="panda"/>
+
+  <gazebo>
+    <plugin name="gazebo_ros_control" filename="libgazebo_ros_control.so">
+      <robotNamespace>/</robotNamespace>
+    </plugin>
+  </gazebo>
 </robot>

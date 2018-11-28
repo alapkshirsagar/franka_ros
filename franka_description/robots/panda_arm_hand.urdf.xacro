@@ -4,4 +4,10 @@
   <xacro:include filename="$(find franka_description)/robots/hand.xacro"/>
   <xacro:panda_arm />
   <xacro:hand ns="panda" rpy="0 0 ${-pi/4}" connected_to="panda_link8"/>
+
+  <gazebo>
+    <plugin name="gazebo_ros_control" filename="libgazebo_ros_control.so">
+      <robotNamespace>/</robotNamespace>
+    </plugin>
+  </gazebo>
 </robot>
