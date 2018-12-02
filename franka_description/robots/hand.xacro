@@ -71,6 +71,17 @@
       <axis xyz="0 1 0"/>
       <limit effort="20" lower="0.0" upper="0.04" velocity="0.2"/>
     </joint>
+    <transmission name="${ns}_finger_transmission1">
+      <robotNamespace>/</robotNamespace>
+      <type>transmission_interface/SimpleTransmission</type>
+      <joint name="${ns}_finger_joint1">
+	    <hardwareInterface>PositionJointInterface</hardwareInterface>
+      </joint>
+      <actuator name="${ns}_finger_motor1">
+	    <hardwareInterface>PositionJointInterface</hardwareInterface>
+	    <mechanicalReduction>1</mechanicalReduction>
+      </actuator>
+    </transmission>
     <joint name="${ns}_finger_joint2" type="prismatic">
       <parent link="${ns}_hand"/>
       <child link="${ns}_rightfinger"/>
@@ -79,5 +90,16 @@
       <limit effort="20" lower="0.0" upper="0.04" velocity="0.2"/>
       <mimic joint="${ns}_finger_joint1" />
     </joint>
+    <transmission name="${ns}_finger_transmission2">
+      <robotNamespace>/</robotNamespace>
+      <type>transmission_interface/SimpleTransmission</type>
+      <joint name="${ns}_finger_joint2">
+	    <hardwareInterface>PositionJointInterface</hardwareInterface>
+      </joint>
+      <actuator name="${ns}_finger_motor2">
+	    <hardwareInterface>PositionJointInterface</hardwareInterface>
+	    <mechanicalReduction>1</mechanicalReduction>
+      </actuator>
+    </transmission>
   </xacro:macro>
 </robot>
