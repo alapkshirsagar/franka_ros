@@ -8,8 +8,5 @@
     <plugin name="gazebo_ros_control" filename="libgazebo_ros_control.so">
       <robotNamespace>/</robotNamespace>
     </plugin>
-    <plugin name="gravity_compensation" filename="libGravityCompensationPlugin.so">
-      <uri>model://robot</uri>
-    </plugin>
   </gazebo>
 </robot>
