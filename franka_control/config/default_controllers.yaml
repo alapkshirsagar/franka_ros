@@ -24,14 +24,6 @@ position_joint_trajectory_controller:
       goal: 0.05
     panda_joint7:
       goal: 0.05
-#  pid_gains:
-#    panda_joint1: {p: 100.0, i: 0.01, d: 10.0}
-#    panda_joint2: {p: 100.0, i: 0.01, d: 10.0}
-#    panda_joint3: {p: 100.0, i: 0.01, d: 10.0}
-#    panda_joint4: {p: 100.0, i: 0.01, d: 10.0}
-#    panda_joint5: {p: 100.0, i: 0.01, d: 10.0}
-#    panda_joint6: {p: 100.0, i: 0.01, d: 10.0}
-#    panda_joint7: {p: 100.0, i: 0.01, d: 10.0}
 
 franka_state_controller:
   type: franka_control/FrankaStateController
@@ -45,3 +37,8 @@ franka_state_controller:
     - panda_joint6
     - panda_joint7
   arm_id: panda
+
+# The joint state controller handles publishing transforms for any moving joints
+franka_sim_state_controller:
+  type: "joint_state_controller/JointStateController"
+  publish_rate: 50

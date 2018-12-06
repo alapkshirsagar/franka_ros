@@ -24,7 +24,6 @@
   <param name="robot_description" command="$(find xacro)/xacro --inorder '$(find franka_description)/robots/panda_arm.urdf.xacro'" unless="$(arg load_gripper)" />
 
   <!--rosparam file="$(find franka_control)/config/gazebo_controller.yaml" command="load" /-->
-    <rosparam file="$(find franka_control)/config/joints.yaml" command="load" />
 
 
   <!-- push robot_description to factory and spawn robot in gazebo -->
