@@ -40,13 +40,24 @@ franka_state_controller:
     - panda_joint7
   arm_id: panda
 
+######## Controllers for simulated robot. Might be moved to a different package soon. #######
 # The joint state controller handles publishing transforms for any moving joints
 franka_sim_state_controller:
   type: "joint_state_controller/JointStateController"
   publish_rate: 50
 
-franka_hand_controller:
-  type: position_controllers/JointGroupPositionController
-  joints:
-    - panda_finger_joint1
-    - panda_finger_joint2
+#franka_hand_controller:
+#  type: position_controllers/JointGroupPositionController
+#  joints:
+#    - panda_finger_joint1
+#    - panda_finger_joint2
+
+franka_left_finger_controller:
+  type: effort_controllers/JointPositionController
+  joint: panda_finger_joint1
+  pid: {p: 100.0, i: 0.01, d: 10.0}
+
+franka_right_finger_controller:
+  type: effort_controllers/JointPositionController
+  joint: panda_finger_joint2
+  pid: {p: 100.0, i: 0.01, d: 10.0}
