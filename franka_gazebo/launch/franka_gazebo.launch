@@ -4,7 +4,7 @@
   <arg name="load_gripper" default="true" />
 
   <!-- these are the arguments you can pass this launch file, for example paused:=true -->
-  <arg name="paused" default="false"/>
+  <arg name="paused" default="true"/>
   <arg name="use_sim_time" default="true"/>
   <arg name="gui" default="true"/>
   <arg name="headless" default="false"/>
@@ -45,6 +45,7 @@
   </nod-->
 
   <rosparam command="load" file="$(find franka_control)/config/default_controllers.yaml" />
+  <rosparam command="load" file="$(find franka_gazebo)/config/gazebo_controllers.yaml" />
 
   <node name="controller_spawner" pkg="controller_manager" type="spawner" respawn="false" output="screen" args="position_joint_trajectory_controller franka_sim_state_controller franka_left_finger_controller franka_right_finger_controller"/>
 
