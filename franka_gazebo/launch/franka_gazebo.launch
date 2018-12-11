@@ -50,6 +50,9 @@
 
   <node name="controller_spawner" pkg="controller_manager" type="spawner" respawn="false" output="screen" args="position_joint_trajectory_controller franka_sim_state_controller franka_left_finger_controller franka_right_finger_controller"/>
 
+  <!-- Start script that provides the action interface needed my moveIt to control the gripper -->
+  <node name="franka_gripper" pkg="franka_gazebo" type="gripper_action_server.py" respawn="false" output="screen" args=""/>
+
   <!--node name="state_controller_spawner" pkg="controller_manager" type="spawner" respawn="false" output="screen" args="franka_state_controller"/>
   <node name="robot_state_publisher" pkg="robot_state_publisher" type="robot_state_publisher" output="screen"/-->
 
