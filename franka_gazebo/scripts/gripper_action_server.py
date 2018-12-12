@@ -13,6 +13,8 @@ class GripperCommandAction(object):
     This is pretty much just a wrapper to use both simulated finger controllers via one
     action simultaneously. The max_effort parameter of the command will be ignored as
     well as no stalling will be detected.
+
+    Also, as moveit seems to use the joint_states_desired topic and expects.....TODO
     """
     _left_finger_index = -1
     _right_finger_index = -1
@@ -31,6 +33,8 @@ class GripperCommandAction(object):
         self._action_server = actionlib.SimpleActionServer(self._action_name, control_msgs.msg.GripperCommandAction, execute_cb=self.execute_cb, auto_start = False)
         self._action_server.start()
 
+        #self._joint_state_desired_publisher = rospy.Publisher("joint_states_desired", sensor_msgs.msg.JointState, queue_size=1)
+
     def state_cb(self, joint_state):
         # get indices where to find values for each finger in joint state message
         if self._left_finger_index == -1 or self._right_finger_index == -1:
@@ -40,6 +44,19 @@ class GripperCommandAction(object):
         else:
             self._feedback.position = joint_state.position[self._left_finger_index] + joint_state.position[self._right_finger_index]
             self._feedback.effort = joint_state.effort[self._left_finger_index] + joint_state.effort[self._right_finger_index]
+
+        # switch order of joint state message
+        # if self._left_finger_index <= 1:
+        #     joint_state.name = list(joint_state.name)
+        #     joint_state.position = list(joint_state.position)
+        #     joint_state.velocity = list(joint_state.velocity)
+        #     joint_state.effort = list(joint_state.effort)
+        #     for i in range (0, 2):
+        #         joint_state.name.append(joint_state.name.pop(0))
+        #         joint_state.position.append(joint_state.position.pop(0))
+        #         joint_state.velocity.append(joint_state.velocity.pop(0))
+        #         joint_state.effort.append(joint_state.effort.pop(0))
+        #     self._joint_state_desired_publisher.publish(joint_state)
 
     def execute_cb(self, goal):
         # helper variables
