@@ -48,7 +48,7 @@ class GripperCommandAction(object):
         # set feedback values
         #self._feedback.position = 0 #TODO
         #self._feedback.effort = 0 #TODO
-        self._feedback.stalled = False #TODO
+        self._feedback.stalled = False
         self._feedback.reached_goal = False
 
         # start executing the action
