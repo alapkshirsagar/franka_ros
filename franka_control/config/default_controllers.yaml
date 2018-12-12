@@ -8,8 +8,6 @@ position_joint_trajectory_controller:
     - panda_joint5
     - panda_joint6
     - panda_joint7
-    #- panda_finger_joint1
-    #- panda_finger_joint2
   constraints:
     goal_time: 0.5
     panda_joint1:
