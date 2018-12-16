@@ -3,9 +3,11 @@
   <arg name="robot_ip" />
   <arg name="load_gripper" default="true" />
   <arg name="launch_rviz" default="true" />
+  <arg name="gazebo_world" default="$(find franka_gazebo)/launch/franka.world"/>
 
   <include file="$(find franka_gazebo)/launch/franka_gazebo.launch" >
     <arg name="load_gripper" value="$(arg load_gripper)" />
+    <arg name="gazebo_world" value="$(arg gazebo_world)"/>
   </include>
 
   <include file="$(find panda_moveit_config)/launch/panda_moveit.launch">

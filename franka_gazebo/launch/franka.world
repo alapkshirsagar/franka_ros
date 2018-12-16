@@ -18,8 +18,8 @@
       <attenuation>
         <range>20</range>
         <constant>0.5</constant>
-        <linear>1</linear>
-        <quadratic>0.1</quadratic>
+        <linear>0.1</linear>
+        <quadratic>0.01</quadratic>
       </attenuation>
       <cast_shadows>0</cast_shadows>
       <direction>0 0 -1</direction>
@@ -31,8 +31,8 @@
       <attenuation>
         <range>20</range>
         <constant>0.5</constant>
-        <linear>1</linear>
-        <quadratic>0.1</quadratic>
+        <linear>0.1</linear>
+        <quadratic>0.01</quadratic>
       </attenuation>
       <cast_shadows>0</cast_shadows>
       <direction>0 0 -1</direction>
@@ -44,8 +44,8 @@
       <attenuation>
         <range>20</range>
         <constant>0.5</constant>
-        <linear>1</linear>
-        <quadratic>0.1</quadratic>
+        <linear>0.1</linear>
+        <quadratic>0.01</quadratic>
       </attenuation>
       <cast_shadows>0</cast_shadows>
       <direction>0 0 -1</direction>
@@ -57,8 +57,8 @@
       <attenuation>
         <range>20</range>
         <constant>0.5</constant>
-        <linear>1</linear>
-        <quadratic>0.1</quadratic>
+        <linear>0.1</linear>
+        <quadratic>0.01</quadratic>
       </attenuation>
       <cast_shadows>0</cast_shadows>
       <direction>0 0 -1</direction>
@@ -70,8 +70,8 @@
       <attenuation>
         <range>20</range>
         <constant>0.5</constant>
-        <linear>1</linear>
-        <quadratic>0.1</quadratic>
+        <linear>0.1</linear>
+        <quadratic>0.01</quadratic>
       </attenuation>
       <cast_shadows>0</cast_shadows>
       <direction>0 0 -1</direction>
@@ -83,8 +83,8 @@
       <attenuation>
         <range>20</range>
         <constant>0.5</constant>
-        <linear>1</linear>
-        <quadratic>0.1</quadratic>
+        <linear>0.1</linear>
+        <quadratic>0.01</quadratic>
       </attenuation>
       <cast_shadows>0</cast_shadows>
       <direction>0 0 -1</direction>
@@ -96,8 +96,8 @@
       <attenuation>
         <range>20</range>
         <constant>0.5</constant>
-        <linear>1</linear>
-        <quadratic>0.1</quadratic>
+        <linear>0.1</linear>
+        <quadratic>0.01</quadratic>
       </attenuation>
       <cast_shadows>0</cast_shadows>
       <direction>0 0 -1</direction>
@@ -109,8 +109,8 @@
       <attenuation>
         <range>20</range>
         <constant>0.5</constant>
-        <linear>1</linear>
-        <quadratic>0.1</quadratic>
+        <linear>0.1</linear>
+        <quadratic>0.01</quadratic>
       </attenuation>
       <cast_shadows>0</cast_shadows>
       <direction>0 0 -1</direction>
@@ -122,8 +122,8 @@
       <attenuation>
         <range>20</range>
         <constant>0.5</constant>
-        <linear>1</linear>
-        <quadratic>0.1</quadratic>
+        <linear>0.1</linear>
+        <quadratic>0.01</quadratic>
       </attenuation>
       <cast_shadows>0</cast_shadows>
       <direction>0 0 -1</direction>
