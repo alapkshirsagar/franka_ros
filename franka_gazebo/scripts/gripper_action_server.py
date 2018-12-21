@@ -62,7 +62,7 @@ class GripperCommandAction(object):
                 break
 
             error = limited_goal - self._feedback.position
-            if abs(error) < 0.001:
+            if abs(error) < 0.005: #TODO also consider goal reached when max_effor reached?
                 self._feedback.reached_goal = True
 
             # publish the feedback

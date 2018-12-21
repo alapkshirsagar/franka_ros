@@ -12,9 +12,9 @@ franka_sim_state_controller:
 franka_left_finger_controller:
   type: effort_controllers/JointPositionController
   joint: panda_finger_joint1
-  pid: {p: 100.0, i: 0.03, d: 10.0}
+  pid: {p: 1000.0, i: 5.0, d: 100.0, i_clamp_min: -10.0, i_clamp_max: 10.0, antiwindup: true}
 
 franka_right_finger_controller:
   type: effort_controllers/JointPositionController
   joint: panda_finger_joint2
-  pid: {p: 100.0, i: 0.03, d: 10.0}
+  pid: {p: 1000.0, i: 5.0, d: 100.0, i_clamp_min: -10.0, i_clamp_max: 10.0, antiwindup: true}
