@@ -4,6 +4,8 @@
   <arg name="load_gripper" default="true" />
   <!-- set hardware interface in robot description (set to VelocityJointInterface for velocity control) -->
   <arg name="hw_interface" default="PositionJointInterface" />
+  <arg name="xyz" default="0 0 0" />
+  <arg name="rpy" default="0 0 0" />
 
   <!-- these are the arguments you can pass this launch file, for example paused:=true -->
   <arg name="paused" default="true"/>
@@ -24,8 +26,8 @@
     <arg name="headless" value="$(arg headless)"/>
   </include>
 
-  <param name="robot_description" command="$(find xacro)/xacro --inorder '$(find franka_description)/robots/panda_arm_hand.urdf.xacro' connected_to:='world' hw_interface:='$(arg hw_interface)'" if="$(arg load_gripper)" />
-  <param name="robot_description" command="$(find xacro)/xacro --inorder '$(find franka_description)/robots/panda_arm.urdf.xacro' connected_to:='world' hw_interface:='$(arg hw_interface)'" unless="$(arg load_gripper)" />
+  <param name="robot_description" command="$(find xacro)/xacro --inorder '$(find franka_description)/robots/panda_arm_hand.urdf.xacro' connected_to:='world' hw_interface:='$(arg hw_interface)' xyz:='$(arg xyz)' rpy:='$(arg rpy)'" if="$(arg load_gripper)" />
+  <param name="robot_description" command="$(find xacro)/xacro --inorder '$(find franka_description)/robots/panda_arm.urdf.xacro' connected_to:='world' hw_interface:='$(arg hw_interface)' xyz:='$(arg xyz)' rpy:='$(arg rpy)'" unless="$(arg load_gripper)" />
 
   <!-- push robot_description to factory and spawn robot in gazebo -->
   <node name="urdf_spawner" pkg="gazebo_ros" type="spawn_model"
