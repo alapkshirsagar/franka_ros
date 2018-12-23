@@ -8,6 +8,7 @@
   <include file="$(find franka_gazebo)/launch/franka_gazebo.launch" >
     <arg name="load_gripper" value="$(arg load_gripper)" />
     <arg name="gazebo_world" value="$(arg gazebo_world)"/>
+    <arg name="hw_interface" value="PositionJointInterface" />
   </include>
 
   <include file="$(find panda_moveit_config)/launch/panda_moveit.launch">

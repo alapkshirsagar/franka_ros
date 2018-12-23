@@ -1,9 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <robot xmlns:xacro="http://www.ros.org/wiki/xacro" name="panda">
+  <xacro:arg name="hw_interface" default="PositionJointInterface"/>
   <xacro:include filename="$(find franka_description)/robots/panda_arm.xacro"/>
   <xacro:include filename="$(find franka_description)/robots/hand.xacro"/>
   <link name="world"/>
-  <xacro:panda_arm connected_to="world"/>
+  <xacro:panda_arm connected_to="world" hw_interface="$(arg hw_interface)"/>
   <xacro:hand ns="panda" rpy="0 0 ${-pi/4}" connected_to="panda_link8"/>
 
   <gazebo>

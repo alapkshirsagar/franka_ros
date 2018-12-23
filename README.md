@@ -16,11 +16,16 @@ and fixes for any of the issues.
 
 Some ideas/issues:
   - correct inertia values yet to insert
-  - grasping of objects ([Jennifer Buehler's fix?](https://github.com/JenniferBuehler/gazebo-pkgs/wiki/The-Gazebo-grasp-fix-plugin))
   - simulation of multiple robots in one environment (putting each one in its own namespace?)
 
-To run the simulation including all necessary controllers, run `franka_gazebo.launch`.
-To also start `the move_group` for planning purposes, run `panda_control_moveit_rviz`.
+To run the simulation, launch `franka_gazebo franka_gazebo.launch` (in case you want to use the
+velocity interface/controller, set the parameter `hw_interface:=VelocityJointInterface`).
+This is pretty much equivalent to launching `franka_control franka_control.launch`.
+Afterwards the **position_joint_trajectory_controller** or the **velocity_jointgroup_controller**
+can be started to control the robot.
+Alternatively, to start the **move_group** for planning purposes, instead of launching
+the launch files mentioned above, just launch either `franka_gazebo panda_control_moveit_rviz.launch`
+or `panda_moveit_config panda_control_moveit_rviz.launch`.
 
 ## License
 

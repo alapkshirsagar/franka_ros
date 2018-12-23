@@ -3,12 +3,6 @@ franka_sim_state_controller:
   type: "joint_state_controller/JointStateController"
   publish_rate: 50
 
-#franka_hand_controller:
-#  type: position_controllers/JointGroupPositionController
-#  joints:
-#    - panda_finger_joint1
-#    - panda_finger_joint2
-
 franka_left_finger_controller:
   type: effort_controllers/JointPositionController
   joint: panda_finger_joint1
