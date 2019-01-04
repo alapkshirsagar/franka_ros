@@ -73,7 +73,6 @@
       <dynamics damping="0.5" friction="1.0"/>
     </joint>
     <transmission name="${arm_id}_transmission1">
-      <robotNamespace>/</robotNamespace>
       <type>transmission_interface/SimpleTransmission</type>
       <joint name="${arm_id}_joint1">
 	    <hardwareInterface>hardware_interface/${hw_interface}</hardwareInterface>
@@ -121,7 +120,6 @@
       <dynamics damping="0.5" friction="1.0"/>
     </joint>
     <transmission name="${arm_id}_transmission2">
-      <robotNamespace>/</robotNamespace>
       <type>transmission_interface/SimpleTransmission</type>
       <joint name="${arm_id}_joint2">
 	    <hardwareInterface>hardware_interface/${hw_interface}</hardwareInterface>
@@ -169,7 +167,6 @@
       <dynamics damping="0.5" friction="1.0"/>
     </joint>
     <transmission name="${arm_id}_transmission3">
-      <robotNamespace>/</robotNamespace>
       <type>transmission_interface/SimpleTransmission</type>
       <joint name="${arm_id}_joint3">
 	    <hardwareInterface>hardware_interface/${hw_interface}</hardwareInterface>
@@ -217,7 +214,6 @@
       <dynamics damping="0.5" friction="1.0"/>
     </joint>
     <transmission name="${arm_id}_transmission4">
-      <robotNamespace>/</robotNamespace>
       <type>transmission_interface/SimpleTransmission</type>
       <joint name="${arm_id}_joint4">
 	    <hardwareInterface>hardware_interface/${hw_interface}</hardwareInterface>
@@ -265,7 +261,6 @@
       <dynamics damping="0.5" friction="1.0"/>
     </joint>
     <transmission name="${arm_id}_transmission5">
-      <robotNamespace>/</robotNamespace>
       <type>transmission_interface/SimpleTransmission</type>
       <joint name="${arm_id}_joint5">
 	    <hardwareInterface>hardware_interface/${hw_interface}</hardwareInterface>
@@ -313,7 +308,6 @@
       <dynamics damping="0.5" friction="1.0"/>
     </joint>
     <transmission name="${arm_id}_transmission6">
-      <robotNamespace>/</robotNamespace>
       <type>transmission_interface/SimpleTransmission</type>
       <joint name="${arm_id}_joint6">
 	    <hardwareInterface>hardware_interface/${hw_interface}</hardwareInterface>
@@ -361,7 +355,6 @@
       <dynamics damping="0.5" friction="1.0"/>
     </joint>
     <transmission name="${arm_id}_transmission7">
-      <robotNamespace>/</robotNamespace>
       <type>transmission_interface/SimpleTransmission</type>
       <joint name="${arm_id}_joint7">
 	    <hardwareInterface>hardware_interface/${hw_interface}</hardwareInterface>

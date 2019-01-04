@@ -3,6 +3,7 @@
   <xacro:arg name="hw_interface" default="PositionJointInterface"/>
   <xacro:arg name="xyz" default="0 0 0"/>
   <xacro:arg name="rpy" default="0 0 0"/>
+  <xacro:arg name="namespace" default="/"/>
   <xacro:include filename="$(find franka_description)/robots/panda_arm.xacro"/>
   <xacro:include filename="$(find franka_description)/robots/hand.xacro"/>
   <link name="world"/>
@@ -11,7 +12,7 @@
 
   <gazebo>
     <plugin name="gazebo_ros_control" filename="libgazebo_ros_control.so">
-      <robotNamespace>/</robotNamespace>
+      <robotNamespace>$(arg namespace)</robotNamespace>
     </plugin>
   </gazebo>
 </robot>
