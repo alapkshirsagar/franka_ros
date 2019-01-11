@@ -30,9 +30,11 @@ class GripperCommandAction(object):
     def state_cb(self, joint_state):
         # get indices where to find values for each finger in joint state message
         if self._left_finger_index == -1 or self._right_finger_index == -1:
-            #TODO Better method than looking for hardcoded joint names?
-            self._left_finger_index = joint_state.name.index('panda_finger_joint1')
-            self._right_finger_index = joint_state.name.index('panda_finger_joint2')
+            for index, name in enumerate(joint_state.name):
+                if name.endswith("finger_joint1"):
+                    self._left_finger_index = index
+                elif name.endswith("finger_joint2"):
+                    self._right_finger_index = index
         else:
             self._feedback.position = (joint_state.position[self._left_finger_index] + joint_state.position[self._right_finger_index]) / 2
             self._feedback.effort = joint_state.effort[self._left_finger_index] + joint_state.effort[self._right_finger_index]
