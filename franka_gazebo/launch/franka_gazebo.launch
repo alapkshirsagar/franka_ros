@@ -1,6 +1,6 @@
 <?xml version="1.0" ?>
 <launch>
-  <arg name="namespace" default="franka1" />
+  <arg name="namespace" default="panda1" />
   <arg name="load_gripper" default="true" />
   <arg name="launch_gazebo" default="true" />
   <!-- set hardware interface in robot description (set to VelocityJointInterface for velocity control) -->
