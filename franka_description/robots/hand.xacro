@@ -19,11 +19,12 @@
         <geometry>
           <mesh filename="package://franka_description/meshes/collision/hand.stl"/>
         </geometry>
+        <contact_coefficient mu="0.8"  k_p="1"  k_d="1" />
       </collision>
       <inertial>
         <!-- ATTENTION! Needs to be defined correctly! -->
-        <origin xyz="0 0 0.02" rpy="0 0 0"/>
-        <mass value="0.3"/>
+        <origin xyz="0 0 0.025" rpy="0 0 0"/>
+        <mass value="1.0"/>
         <inertia ixx="0.001"  ixy="0"  ixz="0" iyy="0.001" iyz="0" izz="0.001" />
       </inertial>
     </link>
@@ -38,7 +39,7 @@
         <geometry>
           <mesh filename="package://franka_description/meshes/collision/finger.stl"/>
         </geometry>
-        <contact_coefficient mu="10.0"  k_p="100"  k_d="1" />
+        <contact_coefficient mu="0.8"  k_p="100"  k_d="1" />
       </collision>
       <inertial>
         <!-- ATTENTION! Needs to be defined correctly! -->
@@ -60,7 +61,7 @@
         <geometry>
           <mesh filename="package://franka_description/meshes/collision/finger.stl"/>
         </geometry>
-        <contact_coefficient mu="10.0"  k_p="100"  k_d="1" />
+        <contact_coefficient mu="0.8"  k_p="100"  k_d="1" />
       </collision>
       <inertial>
         <!-- ATTENTION! Needs to be defined correctly! -->
@@ -119,15 +120,15 @@
     <gazebo reference="${ns}_leftfinger">
         <kp>1000000.0</kp>
         <kd>1.0</kd>
-        <mu1>1.0</mu1>
-        <mu2>1.0</mu2>
+        <mu1>0.3</mu1>
+        <mu2>0.3</mu2>
         <minDepth>0.001</minDepth>
     </gazebo>
     <gazebo reference="${ns}_rightfinger">
         <kp>1000000.0</kp>
         <kd>1.0</kd>
-        <mu1>1.0</mu1>
-        <mu2>1.0</mu2>
+        <mu1>0.3</mu1>
+        <mu2>0.3</mu2>
         <minDepth>0.001</minDepth>
     </gazebo>
     <gazebo reference="${ns}_finger_joint1">
