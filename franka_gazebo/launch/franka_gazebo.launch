@@ -7,6 +7,9 @@
   <arg name="hw_interface" default="PositionJointInterface" />
   <arg name="xyz" default="0 0 0" />
   <arg name="rpy" default="0 0 0" />
+  <!-- By setting this to 'true', either the position_joint_trajectory or the velocity_jointgroup controller,
+  depending on the arg 'hw_interface' will be started by this launchfile -->
+  <arg name="spawn_controller" default="false" />
 
   <!-- arguments for gazebo -->
   <arg name="paused" default="true"/>
@@ -58,22 +61,10 @@
     <!-- Start script that provides the action interface needed by moveIt to control the gripper -->
     <node name="franka_gripper" pkg="franka_gazebo" type="gripper_action_server.py" respawn="false" output="screen" args="" if="$(arg load_gripper)"/>
 
-    <!--node name="state_controller_spawner" pkg="controller_manager" type="spawner" respawn="false" output="screen" args="franka_state_controller"/>
-    <node name="robot_state_publisher" pkg="robot_state_publisher" type="robot_state_publisher" output="screen"/-->
-
-    <!--node name="joint_state_publisher" type="joint_state_publisher" pkg="joint_state_publisher" output="screen">
-      <rosparam if="$(arg load_gripper)" param="source_list">[franka_state_controller/joint_states, franka_gripper/joint_states] </rosparam>
-      <rosparam unless="$(arg load_gripper)" param="source_list">[franka_state_controller/joint_states] </rosparam>
-      <param name="rate" value="30"/>
-    </node-->
-    <!--node name="joint_state_desired_publisher" type="joint_state_publisher" pkg="joint_state_publisher" output="screen">
-      <rosparam if="$(arg load_gripper)" param="source_list">[franka_state_controller/joint_states_desired, franka_gripper/joint_states] </rosparam>
-      <rosparam unless="$(arg load_gripper)" param="source_list">[franka_state_controller/joint_states_desired] </rosparam>
-      <param name="rate" value="30"/>
-      <remap from="/joint_states" to="/joint_states_desired" />
-    </node-->
-
     <node name="joint_state_desired_publisher" pkg="topic_tools" type="relay" args="joint_states joint_states_desired" />
+
+    <node name="motion_controller_spawner" pkg="controller_manager" type="spawner" respawn="false" output="screen" args="position_joint_trajectory_controller" if="$(eval spawn_controller and hw_interface=='PositionJointInterface')"/>
+    <node name="motion_controller_spawner" pkg="controller_manager" type="spawner" respawn="false" output="screen" args="velocity_jointgroup_controller" if="$(eval spawn_controller and hw_interface=='VelocityJointInterface')"/>
     <!--node name="rqt_joint_trajectory_controller" pkg="rqt_joint_trajectory_controller" type="rqt_joint_trajectory_controller" /-->
   </group>
 </launch>
