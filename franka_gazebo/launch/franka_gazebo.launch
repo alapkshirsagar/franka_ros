@@ -65,6 +65,7 @@
 
     <node name="motion_controller_spawner" pkg="controller_manager" type="spawner" respawn="false" output="screen" args="position_joint_trajectory_controller" if="$(eval spawn_controller and hw_interface=='PositionJointInterface')"/>
     <node name="motion_controller_spawner" pkg="controller_manager" type="spawner" respawn="false" output="screen" args="velocity_jointgroup_controller" if="$(eval spawn_controller and hw_interface=='VelocityJointInterface')"/>
+    <node name="motion_controller_spawner" pkg="controller_manager" type="spawner" respawn="false" output="screen" args="effort_jointgroup_controller" if="$(eval spawn_controller and hw_interface=='EffortJointInterface')"/>
     <!--node name="rqt_joint_trajectory_controller" pkg="rqt_joint_trajectory_controller" type="rqt_joint_trajectory_controller" /-->
   </group>
 </launch>
