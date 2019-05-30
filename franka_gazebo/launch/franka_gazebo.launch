@@ -28,6 +28,8 @@
     <arg name="headless" value="$(arg headless)"/>
   </include>
 
+  <param name="robot_description" command="$(find xacro)/xacro --inorder '$(find franka_description)/robots/panda_arm.urdf.xacro' connected_to:='world' hw_interface:='$(arg hw_interface)' xyz:='$(arg xyz)' rpy:='$(arg rpy)' namespace:='/$(arg namespace)/'" unless="$(arg load_gripper)" />
+
   <group ns="$(arg namespace)">
     <!--param name="tf_prefix" value="$(arg namespace)" /-->
     <param name="robot_description" command="$(find xacro)/xacro --inorder '$(find franka_description)/robots/panda_arm_hand.urdf.xacro' connected_to:='world' hw_interface:='$(arg hw_interface)' xyz:='$(arg xyz)' rpy:='$(arg rpy)' namespace:='/$(arg namespace)/'" if="$(arg load_gripper)" />
@@ -65,7 +67,10 @@
 
     <node name="motion_controller_spawner" pkg="controller_manager" type="spawner" respawn="false" output="screen" args="position_joint_trajectory_controller" if="$(eval spawn_controller and hw_interface=='PositionJointInterface')"/>
     <node name="motion_controller_spawner" pkg="controller_manager" type="spawner" respawn="false" output="screen" args="velocity_jointgroup_controller" if="$(eval spawn_controller and hw_interface=='VelocityJointInterface')"/>
-    <node name="motion_controller_spawner" pkg="controller_manager" type="spawner" respawn="false" output="screen" args="effort_jointgroup_controller" if="$(eval spawn_controller and hw_interface=='EffortJointInterface')"/>
+    <!--node name="motion_controller_spawner" pkg="controller_manager" type="spawner" respawn="false" output="screen" args="effort_jointgroup_controller" if="$(eval spawn_controller and hw_interface=='EffortJointInterface')"/-->
+    <node name="motion_controller_spawner" pkg="controller_manager" type="spawner" respawn="false" output="screen" args="effort_position_jointgroup_controller" if="$(eval spawn_controller and hw_interface=='EffortJointInterface')">
+      <remap from="/panda1/robot_description" to="/robot_description"/>
+    </node>
     <!--node name="rqt_joint_trajectory_controller" pkg="rqt_joint_trajectory_controller" type="rqt_joint_trajectory_controller" /-->
   </group>
 </launch>
