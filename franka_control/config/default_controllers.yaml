@@ -90,19 +90,19 @@ effort_position_jointgroup_controller:
     - panda_joint6
     - panda_joint7
   panda_joint1:
-    pid: {p: 3.0, i: 10.0, d: 0.005}
+    pid: {p: 1.8, i: 0.5, d: 0.0, i_clamp_min: -0.5, i_clamp_max: 0.5, antiwindup: true}
   panda_joint2:
-    pid: {p: 3.0, i: 0.05, d: 0.01}
+    pid: {p: 1.4, i: 1.5, d: 0.8, i_clamp_min: -0.4, i_clamp_max: 0.4, antiwindup: true}
   panda_joint3:
-    pid: {p: 2.0, i: 0.01, d: 0.01}
+    pid: {p: 3.5, i: 2.0, d: 0.5, i_clamp_min: -1.0, i_clamp_max: 1.0, antiwindup: true}
   panda_joint4:
-    pid: {p: 2.0, i: 0.01, d: 0.01}
+    pid: {p: 3.0, i: 2.0, d: 1.0, i_clamp_min: -1.0, i_clamp_max: 1.0, antiwindup: true}
   panda_joint5:
-    pid: {p: 1.0, i: 0.01, d: 0.01}
+    pid: {p: 5.0, i: 2.0, d: 1.0, i_clamp_min: -1.0, i_clamp_max: 1.0, antiwindup: true}
   panda_joint6:
-    pid: {p: 1.0, i: 0.01, d: 0.01}
+    pid: {p: 13.0, i: 6.0, d: 1.0, i_clamp_min: -1.0, i_clamp_max: 1.0, antiwindup: true}
   panda_joint7:
-    pid: {p: 1.0, i: 0.01, d: 0.01}
+    pid: {p: 0.8, i: 0.0, d: 0.0, i_clamp_min: -0.1, i_clamp_max: 0.1, antiwindup: true}
 
 
 franka_state_controller:
