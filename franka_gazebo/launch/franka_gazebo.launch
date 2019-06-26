@@ -5,6 +5,8 @@
   <arg name="launch_gazebo" default="true" />
   <!-- set hardware interface in robot description (set to VelocityJointInterface for velocity control) -->
   <arg name="hw_interface" default="PositionJointInterface" />
+  <!-- When using the EffortJointInterface, this  arg decides, if the position or the effort controller will be started -->
+  <arg name="effort_position_controller" default="true" />
   <arg name="xyz" default="0 0 0" />
   <arg name="rpy" default="0 0 0" />
   <!-- By setting this to 'true', either the position_joint_trajectory or the velocity_jointgroup controller,
@@ -67,8 +69,8 @@
 
     <node name="motion_controller_spawner" pkg="controller_manager" type="spawner" respawn="false" output="screen" args="position_joint_trajectory_controller" if="$(eval spawn_controller and hw_interface=='PositionJointInterface')"/>
     <node name="motion_controller_spawner" pkg="controller_manager" type="spawner" respawn="false" output="screen" args="velocity_jointgroup_controller" if="$(eval spawn_controller and hw_interface=='VelocityJointInterface')"/>
-    <!--node name="motion_controller_spawner" pkg="controller_manager" type="spawner" respawn="false" output="screen" args="effort_jointgroup_controller" if="$(eval spawn_controller and hw_interface=='EffortJointInterface')"/-->
-    <node name="motion_controller_spawner" pkg="controller_manager" type="spawner" respawn="false" output="screen" args="effort_position_jointgroup_controller" if="$(eval spawn_controller and hw_interface=='EffortJointInterface')">
+    <node name="motion_controller_spawner" pkg="controller_manager" type="spawner" respawn="false" output="screen" args="effort_jointgroup_controller" if="$(eval spawn_controller and hw_interface=='EffortJointInterface' and not effort_position_controller)" />
+    <node name="motion_controller_spawner" pkg="controller_manager" type="spawner" respawn="false" output="screen" args="effort_position_jointgroup_controller" if="$(eval spawn_controller and hw_interface=='EffortJointInterface' and effort_position_controller)" >
       <remap from="/panda1/robot_description" to="/robot_description"/>
     </node>
     <!--node name="rqt_joint_trajectory_controller" pkg="rqt_joint_trajectory_controller" type="rqt_joint_trajectory_controller" /-->

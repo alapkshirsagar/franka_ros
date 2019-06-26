@@ -3,6 +3,9 @@
   <world name="default">
 
     <gravity>0.0 0.0 0.0</gravity>
+    <physics type="ode">
+      <real_time_update_rate>0</real_time_update_rate>
+    </physics>
 
     <include>
       <uri>model://ground_plane</uri>
